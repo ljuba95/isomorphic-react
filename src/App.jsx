@@ -1,12 +1,24 @@
 import React from 'react'
 import {connect} from "react-redux";
+import QuestionList from './components/QuestionList'
+import QuestionDetail from "./components/QuestionDetail";
+import {Route} from "react-router-dom";
 
+const App = () => (
+  <div>
+    <div className="jumbotron"><h1>StackOverflow Questions</h1></div>
+    <div>
+      <Route exact path="/" render={() => <QuestionList/> } />
+      <Route exact path="/questions/:id"
+             render={({match}) => <QuestionDetail question_id={match.params.id}/> }
+      />
+    </div>
+  </div>
+)
 
-const App = ({questions}) => questions.map(q => <p key={q.question_id}>{q.title}</p>)
-
-const mapStateToProps = (state) => {
+const mapStateToProps = (state,ownProps) => {
   return {
-    questions: state
+    ...state
   }
 }
 
