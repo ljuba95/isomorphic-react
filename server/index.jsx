@@ -12,6 +12,7 @@ import React from 'react'
 import App from '../src/App'
 import {ConnectedRouter} from 'react-router-redux'
 import createHistory from 'history/createMemoryHistory'
+import path from 'path'
 
 const port = process.env.PORT || 3001
 const app = express()
