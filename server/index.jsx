@@ -12,7 +12,6 @@ import React from 'react'
 import App from '../src/App'
 import {ConnectedRouter} from 'react-router-redux'
 import createHistory from 'history/createMemoryHistory'
-import path from 'path'
 
 const port = process.env.PORT || 3001
 const app = express()
@@ -86,7 +85,7 @@ app.get(['/', '/questions/:id'], function* (req, res) {
     const questionDetails = response.items[0]
     initialState.questions = [{...questionDetails, question_id}]
   } else {
-    const qeustions = yield getQuestions();
+    const questions = yield getQuestions();
     initialState.questions = questions.items
   }
   const store = getStore(history, initialState)
