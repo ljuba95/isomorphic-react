@@ -3,7 +3,7 @@ import Markdown from 'react-markdown'
 import TagsList from './TagsList'
 import { connect } from 'react-redux'
 
-const QuestionDetail = ({title, body, answer_count, tags}) => (
+export const QuestionDetail = ({title, body, answer_count, tags}) => (
   <div>
     <h3 className="mb-2">
       {title}
@@ -27,7 +27,7 @@ const QuestionDetail = ({title, body, answer_count, tags}) => (
   </div>
 )
 
-const mapStateToProps = (state,ownProps) => ({
+export const mapStateToProps = (state,ownProps) => ({
   ...state.questions.find(({question_id}) => question_id == ownProps.question_id)
 })
 
